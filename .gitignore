@@ -11,3 +11,4 @@ application-local.properties
 application-secrets.properties
 .DS_Store
 Thumbs.db
+reportes/semgrep/

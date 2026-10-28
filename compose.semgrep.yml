@@ -1,0 +1,39 @@
+services:
+  semgrep:
+    # Semgrep 1.181.0: imagen local existente fijada por digest.
+    image: semgrep/semgrep@sha256:81474464c1f07483ba0682a44787fd93c91397419762a04abe2bafaae396304b
+    container_name: semgrep-front
+    working_dir: /src
+    init: true
+    restart: "no"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 2g
+    cpus: 2
+    tmpfs:
+      - /tmp
+    environment:
+      HOME: /tmp
+      XDG_CACHE_HOME: /tmp/cache
+      SEMGREP_SETTINGS_FILE: /tmp/semgrep-settings.yml
+      SEMGREP_REPORT_DIR: /reports
+    volumes:
+      - type: bind
+        source: .
+        target: /src
+        read_only: true
+      - type: bind
+        source: ./reportes/semgrep
+        target: /reports
+    command: ["sh", "ci/semgrep-scan.sh"]
+    networks:
+      - ci
+
+networks:
+  ci:
+    external: true
+    name: admin-proyectos-ci

@@ -1,0 +1,12 @@
+# Artefactos generados, metadatos y reportes.
+.git/
+target/
+node_modules/
+reportes/
+
+# Bibliotecas de terceros copiadas al frontend: no son codigo propio.
+# Su inventario/vulnerabilidades requieren un analisis de dependencias aparte.
+src/main/resources/static/js/bootstrap*.js
+src/main/resources/static/js/jquery-*.js
+src/main/resources/static/js/popper.min.js
+*.map

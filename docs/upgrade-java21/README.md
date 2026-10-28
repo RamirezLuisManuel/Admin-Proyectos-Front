@@ -4,7 +4,7 @@ Fecha de verificación: 21 de octubre de 2026.
 
 ## Evidencias de los POM
 
-- `pom-antes.xml`: POM del último commit previo a esta actualización (Spring Boot 3.2.5 y Java 17).
+- `pom-antes.xml`: copia conservada del POM original (Spring Boot 3.2.5 y Java 17), correspondiente al commit inicial `d9bd576`. No representa el HEAD actual, que ya incluye la actualización.
 - `pom-previo-springboot4.xml`: cambios manuales de Java 21 y plugins previos a la migración de Spring Boot.
 - `pom-despues.xml`: copia del POM final, equivalente a `../../pom.xml`.
 
@@ -33,7 +33,9 @@ Se mantuvieron Thymeleaf, Bootstrap, las rutas y los formularios existentes. No 
 - `/consultarProyectos` recuperó la respuesta de la API Spring Boot 4.1.1 mediante `RestTemplate`; sus identificadores coincidieron con los recibidos directamente desde el backend.
 - Las nuevas pruebas MockMvc verifican renderizado Thymeleaf y objetos de formulario de registro/proyectos.
 
-El análisis SonarQube queda configurado, pero no se ejecutó contra un servidor ni se afirma aprobación de Quality Gate. La cobertura JaCoCo corresponde al código Java ejecutado; no mide automáticamente el JavaScript de la interfaz.
+El análisis SonarQube y su Quality Gate ya están definidos en el `Jenkinsfile` para Linux. Los archivos POM/Jenkinsfile se comprobaron en GitHub, rama `main`, el 21/10/2026. No se dispone de evidencia de un build completo autenticado en Jenkins ni de aprobación del Quality Gate; estos resultados no se dan por obtenidos. La cobertura JaCoCo corresponde al código Java ejecutado; no mide automáticamente el JavaScript de la interfaz. Consulta [la guía actualizada de Jenkins](../jenkins-linux.md).
+
+Repositorio: https://github.com/RamirezLuisManuel/Admin-Proyectos-Front
 
 ## Reproducción en PowerShell
 
