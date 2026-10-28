@@ -33,6 +33,18 @@ class UpgradeWebIntegrationTest {
     }
 
     @Test
+    void tutorialSeRenderizaConThymeleaf() throws Exception {
+        mvc.perform(get("/tutorial"))
+                .andExpect(status().isOk()).andExpect(view().name("tutorial"));
+    }
+
+    @Test
+    void manualSeRenderizaConThymeleaf() throws Exception {
+        mvc.perform(get("/manual"))
+                .andExpect(status().isOk()).andExpect(view().name("manual"));
+    }
+
+    @Test
     void registroConservaObjetoDeFormulario() throws Exception {
         mvc.perform(get("/register"))
                 .andExpect(status().isOk()).andExpect(view().name("register"))
